@@ -1,0 +1,71 @@
+# Support
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>پشتیبانی</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Tahoma', sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    h1 {
+      font-size: 3em;
+      color: #00ffcc;
+      margin-bottom: 40px;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      background: #111;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ffcc;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    button {
+      background-color: #00ffcc;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00e6b8;
+    }
+  </style>
+</head>
+<body>
+  <h1>پشتیبانی</h1>
+  <form id="supportForm">
+    <input type="text" id="name" placeholder="نام شما" required>
+    <input type="tel" id="phone" placeholder="شماره تماس" required>
+    <textarea id="subject" placeholder="موضوع" rows="4" required></textarea>
+    <button type="submit">ارسال به واتساپ</button>
+  </form>
+
+  <script>
+    document.getElementById('supportForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const subject = document.getElementById('subject').value;
+      const message = `سلام، من ${name} هستم. شماره تماس: ${phone}. موضوع: ${subject}`;
+      const url = `https://wa.me/989919854341?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>
